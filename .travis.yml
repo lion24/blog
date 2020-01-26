@@ -1,6 +1,14 @@
 language: ruby
+
+services:
+  - docker
+
 cache: bundler
 rvm: 2.6
 
-install: script/bootstrap
-script: script/cibuild
+install: make bootstrap
+script:
+  - make cibuild
+
+deploy:
+  skip_cleanup: true
